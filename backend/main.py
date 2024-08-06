@@ -2,6 +2,7 @@ from fastapi import FastAPI, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Dict
+import json
 
 app = FastAPI()
 
@@ -52,4 +53,8 @@ def parse_pipeline(pipeline: Pipeline):
     
     is_dag_result = is_dag(graph)
     
-    return {'num_nodes': num_nodes, 'num_edges': num_edges, 'is_dag': is_dag_result}
+    result = {'num_nodes': num_nodes, 'num_edges': num_edges, 'is_dag': is_dag_result}
+    
+    json_result = json.dumps(result)
+    
+    return json_result

@@ -14,11 +14,12 @@ export const SubmitButton = () => {
           edges: edges,
         }
       );
-      const { num_nodes, num_edge, is_dag } = response.data;
-      alert(`Pipeline Analysis:
-          Number of nodes: ${num_nodes}
-          Number of edges: ${num_edge}
-          Is a DAG: ${is_dag ? "Yes" : "No"}`);
+      //   const { num_nodes, num_edge, is_dag } = response.data;
+      console.log(response.data);
+      //   alert(`Pipeline Analysis:
+      //       Number of nodes: ${num_nodes}
+      //       Number of edges: ${num_edge}
+      //       Is a DAG: ${is_dag ? "Yes" : "No"}`);
     } catch (error) {
       console.log(error);
       alert("An error occured while submittin the pipeline");
